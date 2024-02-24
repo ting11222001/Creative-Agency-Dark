@@ -1,6 +1,7 @@
 import Image from "next/image"
 import styles from "./singlePost.module.css"
 import PostUser from "@/components/postUser/PostUser";
+import { Suspense } from "react";
 
 const getData = async (slug) => {
 
@@ -40,7 +41,9 @@ const SinglePostPage = async ({ params }) => {
             className={styles.avatar}
             width={50}
             height={50} />
-          <PostUser userId={post.userId} />
+          <Suspense fallback={<div>Loading...</div>}>
+            <PostUser userId={post.userId} />
+          </Suspense>
         </div>
         <div className={styles.content}>
           {post.body}
