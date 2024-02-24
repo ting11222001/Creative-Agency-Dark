@@ -1,5 +1,6 @@
 import Image from "next/image"
 import styles from "./singlePost.module.css"
+import PostUser from "@/components/postUser/PostUser";
 
 const getData = async (slug) => {
 
@@ -23,27 +24,27 @@ const SinglePostPage = async ({ params }) => {
     <div className={styles.container}>
       {/* left */}
       <div className={styles.imgContainer}>
-        <Image src="https://images.unsplash.com/photo-1618677366787-9727aacca7ea?q=80&w=1886&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" fill className={styles.img} />
+        <Image
+          src="https://images.unsplash.com/photo-1618677366787-9727aacca7ea?q=80&w=1886&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt=""
+          fill
+          className={styles.img} />
       </div>
       {/* right */}
       <div className={styles.textContainer}>
         <h1 className={styles.title}>{post.title}</h1>
         <div className={styles.detail}>
-          <Image src="https://images.unsplash.com/photo-1618677366787-9727aacca7ea?q=80&w=1886&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" className={styles.avatar} width={50} height={50} />
-          <div className={styles.detailText}>
-            <span className={styles.detailTitle}>Author</span>
-            <span className={styles.detailValue}>
-              Published
-            </span>
-          </div>
-          <div className={styles.detailText}>
-            <span className={styles.detailTitle}>Terry Je</span>
-            <span className={styles.detailValue}>
-              2024.01.01
-            </span>
-          </div>
+          <Image
+            src="https://images.unsplash.com/photo-1618677366787-9727aacca7ea?q=80&w=1886&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt=""
+            className={styles.avatar}
+            width={50}
+            height={50} />
+          <PostUser userId={post.userId} />
         </div>
-        <div className={styles.content}>{post.body}</div>
+        <div className={styles.content}>
+          {post.body}
+        </div>
       </div>
     </div>
   )
