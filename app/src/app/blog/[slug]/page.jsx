@@ -2,24 +2,30 @@ import Image from "next/image"
 import styles from "./singlePost.module.css"
 import PostUser from "@/components/postUser/PostUser";
 import { Suspense } from "react";
+import { getPost } from "@/lib/data";
 
-const getData = async (slug) => {
+// Fetch data with an API
+// const getData = async (slug) => {
 
-  const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${slug}`, { cache: "no-store" });
-  // fetch by default will cache the data
+//   const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${slug}`, { cache: "no-store" });
+//   // fetch by default will cache the data
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch post!");
-  }
+//   if (!res.ok) {
+//     throw new Error("Failed to fetch post!");
+//   }
 
-  return res.json();
-}
+//   return res.json();
+// }
 
 const SinglePostPage = async ({ params }) => {
 
+  // Fetch data with an API
   // console.log(params);
+  // const post = await getData(params.slug);
 
-  const post = await getData(params.slug);
+  // Fetch data from temporary data
+  const post = await getPost(params.slug);
+  // console.log(post);
 
   return (
     <div className={styles.container}>

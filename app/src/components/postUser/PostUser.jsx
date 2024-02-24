@@ -1,21 +1,28 @@
 import React from 'react'
 import styles from "./postUser.module.css"
+import { getUser } from '@/lib/data'
 
-const getData = async (userId) => {
+// Fetch data with an API
+// const getData = async (userId) => {
 
-  const res = await fetch(`https://jsonplaceholder.typicode.com/users/${userId}`, { cache: "no-store" });
-  // fetch by default will cache the data
+//   const res = await fetch(`https://jsonplaceholder.typicode.com/users/${userId}`, { cache: "no-store" });
+//   // fetch by default will cache the data
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch user!");
-  }
+//   if (!res.ok) {
+//     throw new Error("Failed to fetch user!");
+//   }
 
-  return res.json();
-}
+//   return res.json();
+// }
 
 const postUser = async ({ userId }) => {
 
-  const user = await getData(userId);
+  // Fetch data with an API
+  // const user = await getData(userId);
+
+  // Fetch data from temporary data
+  const user = await getUser(userId);
+  // console.log(user);
 
   return (
     <>
