@@ -39,7 +39,7 @@ const SinglePostPage = async ({ params }) => {
       </div>
       {/* right */}
       <div className={styles.textContainer}>
-        <h1 className={styles.title}>{post.title}</h1>
+        <h1 className={styles.title}>{post?.title}</h1>
         <div className={styles.detail}>
           <Image
             src="https://images.unsplash.com/photo-1618677366787-9727aacca7ea?q=80&w=1886&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -47,12 +47,14 @@ const SinglePostPage = async ({ params }) => {
             className={styles.avatar}
             width={50}
             height={50} />
-          <Suspense fallback={<div>Loading...</div>}>
-            <PostUser userId={post.userId} />
-          </Suspense>
+          {post && (
+            <Suspense fallback={<div>Loading...</div>}>
+              <PostUser userId={post?.userId} />
+            </Suspense>
+          )}
         </div>
         <div className={styles.content}>
-          {post.body}
+          {post?.body}
         </div>
       </div>
     </div>
