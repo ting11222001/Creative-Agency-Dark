@@ -1,3 +1,8 @@
+.container {
+  display: flex;
+  gap: 10px;
+}
+
 .detailText {
   display: flex;
   flex-direction: column;
@@ -11,4 +16,9 @@
 
 .detailValue {
 font-weight: 500;
+}
+
+.avatar {
+  object-fit: cover;
+  border-radius: 50%;
 }
