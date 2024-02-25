@@ -16,8 +16,6 @@ const userSchema = new mongoose.Schema({
   },
   password: {
     type: String,
-    required: true,
-    min: 6
   },
   img: {
     type: String,
@@ -33,8 +31,6 @@ const postSchema = new mongoose.Schema({
   title: {
     type: String,
     required: true,
-    min: 3,
-    max: 20,
   },
   desc: {
     type: String,
