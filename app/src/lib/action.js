@@ -1,7 +1,7 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { Post } from "./models";
+import { Post, User } from "./models";
 import { connectToDb } from "./util";
 
 export const addPost = async (formData) => {
@@ -31,7 +31,7 @@ export const addPost = async (formData) => {
 
   } catch (error) {
     console.log(error);
-    return { error: "Somthing went wrong"};
+    return { error: "Somthing went wrong" };
   }
 }
 
@@ -49,6 +49,44 @@ export const deletePost = async (formData) => {
 
   } catch (error) {
     console.log(error);
-    return { error: "Somthing went wrong"};
+    return { error: "Somthing went wrong" };
+  }
+}
+
+export const register = async (formData) => {
+  const { username, email, password, img, passwordRepeat } = Object.fromEntries(formData);
+
+  try {
+    connectToDb();
+
+    // check if repeated password is correct
+    if (password != passwordRepeat) {
+      return "Passwords do not match!";
+    }
+
+    // check if an user already exists
+    const user = await User.findOne({ username });
+
+    if (user) {
+      return "Username already exists";
+    }
+
+    // if it's a new user, then create
+    const newUser = new User({
+      username,
+      email,
+      password,
+      img
+    });
+
+    await newUser.save();
+
+    console.log("saved to db");
+
+    revalidatePath("/register");
+
+  } catch (error) {
+    console.log(error);
+    return { error: "Somthing went wrong" };
   }
 }

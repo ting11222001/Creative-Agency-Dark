@@ -1,6 +1,12 @@
+import React from 'react'
+
 const LoginPage = () => {
   return (
-    <div>LoginPage</div>
+    <div>
+      <form action="">
+
+      </form>
+    </div>
   )
 }
 
