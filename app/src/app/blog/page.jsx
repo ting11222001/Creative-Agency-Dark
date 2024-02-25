@@ -15,6 +15,12 @@ import { getPosts } from "@/lib/data"
 //   return res.json();
 // }
 
+// SEO
+export const metadata = {
+  title: "Blog Page",
+  description: "Blog",
+};
+
 const BlogPage = async () => {
 
   // Fetch data with an API
