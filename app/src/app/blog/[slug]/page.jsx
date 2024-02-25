@@ -18,6 +18,18 @@ const getData = async (slug) => {
   return res.json();
 }
 
+// const deleteData = async (slug) => {
+
+//   const res = await fetch(`http://localhost:3000/api/blog/${slug}`, { method: "DELETE" });
+
+
+//   if (!res.ok) {
+//     throw new Error("Failed to delete post!");
+//   }
+
+//   return res.json();
+// }
+
 // SEO
 export const generateMetadata = async ({ params }) => {
   const { slug } = params;
