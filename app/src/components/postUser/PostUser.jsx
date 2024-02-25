@@ -21,7 +21,7 @@ const postUser = async ({ userId }) => {
   // Fetch data with an API
   // const user = await getData(userId);
 
-  // Fetch data from temporary data
+  // Fetch data from temporary data or directly from MongoDB
   const user = await getUser(userId);
 
   return (
