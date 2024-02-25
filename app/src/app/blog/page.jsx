@@ -3,17 +3,18 @@ import styles from "./blog.module.css"
 import { getPosts } from "@/lib/data"
 
 // Fetch data with an API
-// const getData = async () => {
+const getData = async () => {
 
-//   const res = await fetch("https://jsonplaceholder.typicode.com/posts", { next: { revalidate: 3600 } });
-//   // fetch by default will cache the data
+  // const res = await fetch("https://jsonplaceholder.typicode.com/posts", { next: { revalidate: 3600 } });
+    const res = await fetch("http://localhost:3000/api/blog", { next: { revalidate: 3600 } });
 
-//   if (!res.ok) {
-//     throw new Error("Failed to fetch posts!");
-//   }
 
-//   return res.json();
-// }
+  if (!res.ok) {
+    throw new Error("Failed to fetch posts!");
+  }
+
+  return res.json();
+}
 
 // SEO
 export const metadata = {
@@ -24,10 +25,10 @@ export const metadata = {
 const BlogPage = async () => {
 
   // Fetch data with an API
-  // const posts = await getData();
+  const posts = await getData();
 
-  // Fetch data from temporary data
-  const posts = await getPosts();
+  // Fetch data from temporary data or directly from MongoDB
+  // const posts = await getPosts();
 
   return (
     <div className={styles.container}>
