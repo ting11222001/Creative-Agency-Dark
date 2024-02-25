@@ -17,6 +17,19 @@ import { getPost } from "@/lib/data";
 //   return res.json();
 // }
 
+// SEO
+export const generateMetadata = async ({ params }) => {
+  const { slug } = params;
+
+  // In Next.js, it will only fetch once in the same component.
+  const post = await getPost(slug);
+
+  return {
+    title: post.title,
+    description: post.desc
+  }
+};
+
 const SinglePostPage = async ({ params }) => {
 
   // Fetch data with an API
@@ -48,7 +61,7 @@ const SinglePostPage = async ({ params }) => {
           <div className={styles.detailText}>
             <span className={styles.detailTitle}>Published</span>
             <span className={styles.detailValue}>
-              {post.createdAt.toString()}
+              {post.createdAt.toString().slice(0, 16)}
             </span>
           </div>
         </div>
