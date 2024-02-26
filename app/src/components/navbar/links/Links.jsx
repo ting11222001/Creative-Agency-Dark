@@ -8,7 +8,7 @@ import { handleLogout } from '@/lib/action';
 
 const links = [
   {
-    title: "Homepage",
+    title: "Home",
     path: "/",
   },
   {
@@ -58,12 +58,28 @@ const Links = ({ session }) => {
       </div>
       <Image className={styles.menuButton} src="/menu.png" alt="" width={30} height={30} onClick={() => setOpen((prev) => !prev)} />
       {
-        open && <div className={styles.mobileLinks}>
+        open &&
+        <div className={styles.mobileLinks}>
           {
             links.map(
               (link) => (
                 <NavLink item={link} key={link.title}></NavLink>
               )
+            )
+          }
+          {
+            session ? (
+              <>
+                {session.user?.isAdmin && <NavLink item={{ title: "Admin", path: "/admin" }} />}
+                <form action={handleLogout}>
+                  <button className={styles.logout}>Logout</button>
+
+                </form>
+              </>
+            ) : (
+              <>
+                <NavLink item={{ title: "Login", path: "/login" }}></NavLink>
+              </>
             )
           }
         </div>

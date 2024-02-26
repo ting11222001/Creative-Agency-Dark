@@ -1,21 +1,28 @@
 .container {
   display: flex;
+  flex-direction: column-reverse;
   align-items: center;
+  justify-content: center;
+  gap: 50px;
 }
 
 .imgContainer{
   position: relative;
-  flex: 1;
-  height: 500px; /* because this time it doesn't have anything on the left */
+  height: 60vh;
+  width: 50vw;
 }
 
 .img {
   object-fit: contain;
 }
 
+.subtitle{
+  color:var(--btn);
+  text-align: center;
+}
+
 .formContainer {
-  flex: 1;
-  padding-right: 50px;
+  width: 50vw;
 }
 
 .form {
@@ -44,8 +51,8 @@
   cursor: pointer;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) {
   .container {
-      flex-direction: column;
+      flex-direction: row;
   }
 }

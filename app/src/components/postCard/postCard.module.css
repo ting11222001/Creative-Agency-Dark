@@ -38,16 +38,20 @@
 .title {
   width: 90%;
   font-size: 24px;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
 }
 
 .desc {
   width: 90%;
   margin-bottom: 20px;
   font-weight: 300;
-  color: gray
+  color: gray;
+  margin: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
-.link{
+.link {
   text-decoration: underline;
 }
