@@ -1,6 +1,4 @@
-import LoginForm from '@/components/loginForm/loginForm'
-import { login } from '@/lib/action'
-import { auth } from '@/lib/auth'
+import LoginForm from '@/components/loginForm/LoginForm'
 import React from 'react'
 import styles from './login.module.css'
 
