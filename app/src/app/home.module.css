@@ -12,8 +12,20 @@
 
 .imgContainer {
   flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.heroImgContainer {
   /* for image container */
   position: relative;
+  height: 50vh;
+  width: 50vw;
+}
+
+.heroImg {
+  object-fit: contain;
 }
 
 .title {
@@ -51,16 +63,12 @@
   filter: grayscale(1);
 }
 
-.brandImg {}
-
-
-.heroImg {}
 
 
 @media (max-width: 1024px) {
   .container {
-      flex-direction: column;
-      text-align: center;
+    flex-direction: column;
+    text-align: center;
   }
 
   .buttons {
