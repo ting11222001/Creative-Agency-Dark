@@ -24,7 +24,7 @@ const HomePage = () => {
       <div className={styles.imgContainer}>
         <div className={styles.heroImgContainer}>
           <Image
-            src="/hero.gif"
+            src="/hero3.gif"
             alt=""
             fill
             className={styles.heroImg}
