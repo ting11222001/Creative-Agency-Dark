@@ -1,6 +1,8 @@
+import LoginForm from '@/components/loginForm/loginForm'
 import { login } from '@/lib/action'
-import { auth } from '@/lib/auth';
+import { auth } from '@/lib/auth'
 import React from 'react'
+import styles from './login.module.css'
 
 const LoginPage = async () => {
 
@@ -8,12 +10,10 @@ const LoginPage = async () => {
   // console.log(session);
 
   return (
-    <div>
-      <form action={login}>
-        <input type="text" placeholder="username" name="username" />
-        <input type="password" placeholder="password" name="password" />
-        <button>Login with Credentials</button>
-      </form>
+    <div className={styles.container}>
+      <div className={styles.wrapper}>
+        <LoginForm />
+      </div>
     </div>
   )
 }

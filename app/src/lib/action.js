@@ -100,7 +100,8 @@ export const register = async (previousState, formData) => {
 }
 
 // for credentials log in
-export const login = async (formData) => {
+// previousState is from RegisterForm's useFormState()
+export const login = async (previousState, formData) => {
   const { username, password } = Object.fromEntries(formData);
 
   try {

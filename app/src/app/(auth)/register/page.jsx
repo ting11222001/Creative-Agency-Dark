@@ -6,7 +6,7 @@ const RegisterPage = () => {
 
   return (
     <div className={styles.container}>
-        <div className={styles.wrapper}>
+      <div className={styles.wrapper}>
         <RegisterForm/>
       </div>
     </div>
