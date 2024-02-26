@@ -6,10 +6,13 @@ const HomePage = () => {
     <div className={styles.container}>
       {/* left */}
       <div className={styles.textContainer}>
-        <h1 className={styles.title}>Creative
-          Thoughts Agency.</h1>
+        <h1 className={styles.title}>Creative<br></br>
+          Thoughts<br></br> Agency.</h1>
         <p className={styles.desc}>
           We believe in the power of creativity to transform businesses and elevate brands.
+<br></br>
+<br></br>
+          Our team of passionate and talented creatives is dedicated to bringing your vision to life, crafting compelling stories, and designing experiences that resonate with your audience.
         </p>
         <div className={styles.buttons}>
           <button className={styles.button}>Learn More</button>

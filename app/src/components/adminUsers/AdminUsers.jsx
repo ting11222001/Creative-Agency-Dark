@@ -17,7 +17,7 @@ const AdminUsers = async () => {
           <div className={styles.detail}>
             <Suspense fallback={<Spinner />}>
               <Image
-                src={user.img || "/noAvatar.png"}
+                src={user.img && user.img != "" ? user.img : "/noAvatar.png"}
                 alt=""
                 width={50}
                 height={50}
