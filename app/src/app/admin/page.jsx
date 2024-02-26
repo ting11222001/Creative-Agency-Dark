@@ -5,17 +5,18 @@ import AdminPostForm from "@/components/adminPostForm/AdminPostForm"
 import AdminUsers from "@/components/adminUsers/AdminUsers"
 import AdminUserForm from "@/components/adminUserForm/AdminUserForm"
 import { auth } from "@/lib/auth"
+import Spinner from "@/components/loadingSpinner/Spinner"
 
 const AdminPage = async () => {
 
   const session = await auth();
-  console.log(session);
+  // console.log(session);
 
   return (
     <div className={styles.container}>
       <div className={styles.row}>
         <div className={styles.col}>
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<Spinner />}>
             <AdminPosts />
           </Suspense>
         </div>
@@ -26,7 +27,7 @@ const AdminPage = async () => {
 
       <div className={styles.row}>
         <div className={styles.col}>
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<Spinner />}>
             <AdminUsers />
           </Suspense>
         </div>

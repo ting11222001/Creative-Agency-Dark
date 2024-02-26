@@ -3,11 +3,11 @@ import Image from "next/image"
 
 const HomePage = () => {
   return (
-  <div className={styles.container}>
+    <div className={styles.container}>
       {/* left */}
       <div className={styles.textContainer}>
-        <h1 className={styles.title}>Creative 
-        Thoughts Agency.</h1>
+        <h1 className={styles.title}>Creative
+          Thoughts Agency.</h1>
         <p className={styles.desc}>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero
           blanditiis adipisci minima reiciendis a autem assumenda dolore.
@@ -18,12 +18,20 @@ const HomePage = () => {
         </div>
         <div className={styles.brands}>
           {/* "fill" according to the div */}
-          <Image src="/brands.png" alt="" fill className={styles.brandImg}/>
+          <Image src="/brands.png" alt="" fill className={styles.brandImg} />
         </div>
-      </div>      
+      </div>
       {/* right */}
       <div className={styles.imgContainer}>
-        <Image src="/hero.gif" alt="" fill className={styles.heroImg}/>
+        <div className={styles.heroImgContainer}>
+          <Image
+            src="/hero.gif"
+            alt=""
+            fill
+            className={styles.heroImg}
+          />
+
+        </div>
       </div>
     </div>
 
