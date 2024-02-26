@@ -57,7 +57,7 @@ export const deletePost = async (formData) => {
 // for admin dashboard
 // previousState is for useFormState()
 export const addUser = async (previousState, formData) => {
-  const { username, email, password, img } = Object.fromEntries(formData);
+  const { username, email, password, img, isAdmin } = Object.fromEntries(formData);
   // console.log(formData);
   // console.log(title, desc, slug, userId);
   try {
@@ -67,6 +67,7 @@ export const addUser = async (previousState, formData) => {
       email,
       password,
       img,
+      isAdmin,
     });
     await newUser.save();
     console.log("saved to db");
