@@ -9,8 +9,7 @@ const HomePage = () => {
         <h1 className={styles.title}>Creative
           Thoughts Agency.</h1>
         <p className={styles.desc}>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero
-          blanditiis adipisci minima reiciendis a autem assumenda dolore.
+          We believe in the power of creativity to transform businesses and elevate brands.
         </p>
         <div className={styles.buttons}>
           <button className={styles.button}>Learn More</button>
