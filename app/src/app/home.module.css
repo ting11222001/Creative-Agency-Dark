@@ -74,11 +74,10 @@
   }
 
   .heroImgContainer {
-  /* for image container */
-  position: relative;
-  height: 80vh;
-  width: 80vw;
-}
+    position: relative;
+    height: 80vh;
+    width: 80vw;
+  }
 
   .buttons {
     justify-content: center;
@@ -93,4 +92,12 @@
   .title {
     font-size: 64px
   }
+
+  .heroImgContainer {
+    /* for image container */
+    position: relative;
+    height: 50vh;
+    width: 90vw;
+  }
+
 }

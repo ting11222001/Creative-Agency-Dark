@@ -17,7 +17,7 @@ const AdminPosts = async () => {
           <div className={styles.detail}>
             <Suspense fallback={<Spinner />}>
               <Image
-                src={post.img || "/noAvatar.png"}
+                src={post.img && post.img != "" ? post.img : "https://images.unsplash.com/photo-1519984930929-ebf9b55a5986?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"}
                 alt=""
                 width={50}
                 height={50}
