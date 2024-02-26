@@ -6,8 +6,8 @@ import { getPosts } from "@/lib/data"
 const getData = async () => {
 
   // const res = await fetch("https://jsonplaceholder.typicode.com/posts", { next: { revalidate: 3600 } });
-  const res = await fetch("http://localhost:3000/api/blog", { next: { revalidate: 3600 } });
-  // const res = await fetch("http://localhost:3000/api/blog", { cache: "no-store" });
+  // const res = await fetch("http://localhost:3000/api/blog", { next: { revalidate: 3600 } });
+  const res = await fetch("http://localhost:3000/api/blog", { cache: "no-store" });
 
   if (!res.ok) {
     throw new Error("Failed to fetch posts!");
