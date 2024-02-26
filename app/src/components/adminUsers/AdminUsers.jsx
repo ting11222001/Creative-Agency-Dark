@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import styles from './adminUsers.module.css'
 import { getUsers } from '@/lib/data'
 import { deleteUser } from '@/lib/action';
 import Image from 'next/image';
+import Spinner from '../loadingSpinner/Spinner';
 
 const AdminUsers = async () => {
 
@@ -14,12 +15,14 @@ const AdminUsers = async () => {
       {users.map((user) => (
         <div className={styles.user} key={user.id}>
           <div className={styles.detail}>
-            <Image
-              src={user.img || "/noAvatar.png"}
-              alt=""
-              width={50}
-              height={50}
-            />
+            <Suspense fallback={<Spinner />}>
+              <Image
+                src={user.img || "/noAvatar.png"}
+                alt=""
+                width={50}
+                height={50}
+              />
+            </Suspense>
             <span>{user.username}</span>
           </div>
           <form action={deleteUser}>

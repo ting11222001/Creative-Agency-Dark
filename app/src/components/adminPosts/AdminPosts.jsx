@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import styles from './adminPosts.module.css'
 import { getPosts } from '@/lib/data'
 import Image from 'next/image';
 import { deletePost } from '@/lib/action';
+import Spinner from '../loadingSpinner/Spinner';
 
 const AdminPosts = async () => {
 
@@ -14,12 +15,14 @@ const AdminPosts = async () => {
       {posts.map((post) => (
         <div className={styles.post} key={post.id}>
           <div className={styles.detail}>
-            <Image
-              src={post.img || "/noAvatar.png"}
-              alt=""
-              width={50}
-              height={50}
-            />
+            <Suspense fallback={<Spinner />}>
+              <Image
+                src={post.img || "/noAvatar.png"}
+                alt=""
+                width={50}
+                height={50}
+              />
+            </Suspense>
             <span className={styles.postTitle}>{post.title}</span>
           </div>
           <form action={deletePost}>
