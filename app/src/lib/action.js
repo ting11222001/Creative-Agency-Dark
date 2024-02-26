@@ -56,7 +56,8 @@ export const deletePost = async (formData) => {
 }
 
 // for credentials register
-export const register = async (formData) => {
+// previousState is from RegisterForm's useFormState()
+export const register = async (previousState, formData) => {
   const { username, email, password, img, passwordRepeat } = Object.fromEntries(formData);
 
   try {
@@ -64,14 +65,14 @@ export const register = async (formData) => {
 
     // check if repeated password is correct
     if (password != passwordRepeat) {
-      return "Passwords do not match!";
+      return {error: "Passwords do not match!"};
     }
 
     // check if an user already exists
     const user = await User.findOne({ username });
 
     if (user) {
-      return "Username already exists";
+      return {error: "Username already exists"};
     }
 
     // hash the password before saving into database
@@ -90,7 +91,7 @@ export const register = async (formData) => {
 
     console.log("saved to db");
 
-    revalidatePath("/register");
+    return {success: true};
 
   } catch (error) {
     console.log(error);
