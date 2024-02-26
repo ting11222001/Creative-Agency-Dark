@@ -4,10 +4,7 @@ import { auth } from '@/lib/auth'
 import React from 'react'
 import styles from './login.module.css'
 
-const LoginPage = async () => {
-
-  const session = await auth();
-  // console.log(session);
+const LoginPage = () => {
 
   return (
     <div className={styles.container}>
