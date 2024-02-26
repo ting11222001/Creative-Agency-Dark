@@ -5,18 +5,18 @@ import { Suspense } from "react";
 import { getPost } from "@/lib/data";
 
 // Fetch data with an API
-const getData = async (slug) => {
+// const getData = async (slug) => {
 
-  // const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${slug}`, { cache: "no-store" });
-  const res = await fetch(`http://localhost:3000/api/blog/${slug}`, { cache: "no-store" });
+//   // const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${slug}`, { cache: "no-store" });
+//   const res = await fetch(`http://localhost:3000/api/blog/${slug}`, { cache: "no-store" });
 
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch post!");
-  }
+//   if (!res.ok) {
+//     throw new Error("Failed to fetch post!");
+//   }
 
-  return res.json();
-}
+//   return res.json();
+// }
 
 // const deleteData = async (slug) => {
 
@@ -47,10 +47,10 @@ const SinglePostPage = async ({ params }) => {
 
   // Fetch data with an API
   // console.log(params);
-  const post = await getData(params.slug);
+  // const post = await getData(params.slug);
 
   // Fetch data from temporary data or directly from MongoDB
-  // const post = await getPost(params.slug);
+  const post = await getPost(params.slug);
 
   return (
     <div className={styles.container}>
