@@ -6,7 +6,9 @@ import { connectToDb } from "./util";
 import { signIn, signOut } from "./auth";
 import bcrypt from "bcryptjs";
 
-export const addPost = async (formData) => {
+// for admin dashboard
+// previousState is for useFormState()
+export const addPost = async (previousState, formData) => {
 
   // const title = formData.get("title");
   // const desc = formData.get("desc");
@@ -24,12 +26,10 @@ export const addPost = async (formData) => {
       slug,
       userId
     });
-
     await newPost.save();
-
     console.log("saved to db");
-
     revalidatePath("/blog");
+    revalidatePath("/admin");
 
   } catch (error) {
     console.log(error);
@@ -37,17 +37,58 @@ export const addPost = async (formData) => {
   }
 }
 
+// for admin dashboard
 export const deletePost = async (formData) => {
   const { id } = Object.fromEntries(formData);
 
   try {
     connectToDb();
-
     await Post.findByIdAndDelete(id);
-
     console.log("deleted from db");
-
     revalidatePath("/blog");
+    revalidatePath("/admin");
+
+  } catch (error) {
+    console.log(error);
+    return { error: "Somthing went wrong" };
+  }
+}
+
+// for admin dashboard
+// previousState is for useFormState()
+export const addUser = async (previousState, formData) => {
+  const { username, email, password, img } = Object.fromEntries(formData);
+  // console.log(formData);
+  // console.log(title, desc, slug, userId);
+  try {
+    connectToDb();
+    const newUser = new User({
+      username,
+      email,
+      password,
+      img,
+    });
+    await newUser.save();
+    console.log("saved to db");
+    revalidatePath("/admin");
+
+  } catch (error) {
+    console.log(error);
+    return { error: "Somthing went wrong" };
+  }
+}
+
+// for admin dashboard
+export const deleteUser = async (formData) => {
+  const { id } = Object.fromEntries(formData);
+
+  try {
+    connectToDb();
+    await User.findByIdAndDelete(id);
+    // Also delete the posts related to this user
+    await Post.deleteMany({ userId: id });
+    console.log("deleted from db");
+    revalidatePath("/admin");
 
   } catch (error) {
     console.log(error);
@@ -65,14 +106,14 @@ export const register = async (previousState, formData) => {
 
     // check if repeated password is correct
     if (password != passwordRepeat) {
-      return {error: "Passwords do not match!"};
+      return { error: "Passwords do not match!" };
     }
 
     // check if an user already exists
     const user = await User.findOne({ username });
 
     if (user) {
-      return {error: "Username already exists"};
+      return { error: "Username already exists" };
     }
 
     // hash the password before saving into database
@@ -86,12 +127,9 @@ export const register = async (previousState, formData) => {
       password: hashedPassword,
       img
     });
-
     await newUser.save();
-
     console.log("saved to db");
-
-    return {success: true};
+    return { success: true };
 
   } catch (error) {
     console.log(error);
@@ -110,7 +148,7 @@ export const login = async (previousState, formData) => {
 
   } catch (error) {
     console.log(error);
-    
+
     if (error.message.includes("CredentialsSignin")) {
       return { error: "Invalid username or password" };
     }
