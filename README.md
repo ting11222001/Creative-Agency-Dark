@@ -54,7 +54,7 @@ This will start the development server, and you can access the website in your b
 - Next.js 14
 - React
 - MongoDB
-- Auth.js library
+- [Auth.js](https://authjs.dev/)
 
 ## Features
 
