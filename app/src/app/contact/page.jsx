@@ -1,6 +1,6 @@
-// "use client";
 import Image from "next/image";
 import styles from "./contact.module.css";
+import Form from "./form/Form";
 
 // SEO
 export const metadata = {
@@ -17,20 +17,7 @@ const ContactPage = () => {
       </div>
       {/* right */}
       <div className={styles.formContainer}>
-        <form action="" className={styles.form}>
-          <h2 className={styles.subtitle}>Contact us</h2>
-          <input type="text" placeholder="Name and Surname" />
-          <input type="text" placeholder="Email Address" />
-          <input type="text" placeholder="Phone Number (Optional)" />
-          <textarea
-            name=""
-            id=""
-            cols="30"
-            rows="10"
-            placeholder="Message"
-          ></textarea>
-          <button>Send</button>
-        </form>
+        <Form />
       </div>
     </div>
   )
