@@ -14,8 +14,8 @@ Check out the live demo [here](https://creative-agency-dark.vercel.app/).
 - [Usage](#usage)
 - [Technologies](#technologies)
 - [Features](#features)
+- [Test User Login Information](#test-user-login-information)
 - [Acknowledgements](#acknowledgements)
-- [License](#license)
 
 ## Installation
 
@@ -63,12 +63,23 @@ This will start the development server, and you can access the website in your b
 - Basic credential authentication with Auth.js
 - Next.js app router for smooth navigation
 
+## Test User Login Information
+To test the credential authentication functionality, you can use the following admin and regular user login information:
+
+1. Admin
+```
+Username: admin
+Password: 123456
+```
+
+2. Regular user
+```
+Username: john
+Password: john
+```
+
 ## Acknowledgements
 
 The design was inspired by [Lama Dev](https://github.com/safak/next14-tutorial).
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
 
 Feel free to reach out with any questions or feedback!
